@@ -1,4 +1,4 @@
-# Shopping List
+# Wilderness Wireless Workshop II Shopping List
 
 ## Overview
 
