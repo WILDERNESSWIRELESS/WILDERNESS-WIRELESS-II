@@ -43,6 +43,6 @@ https://www.sparkfun.com/products/14277
 * Laptop with SSH client (installed by default on OSX and LINUX, download [PuTTY](http://www.putty.org/) for WIN)
 
 * All items from the Adafruit wishlist at this [URL](http://www.adafruit.com/wishlists/437997)
-or replacements from amazon if Adafruit is out of stock.
+or replacements from amazon or elsewhere if Adafruit is out of stock.
 
 * $100 cash money to pay for the additional items necessary for the workshop.
