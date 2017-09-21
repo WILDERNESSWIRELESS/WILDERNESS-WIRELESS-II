@@ -6,6 +6,17 @@ The Wilderness Wireless Workshop II requires participants to purchase a kit of e
 
 We will be working with Raspberry Pi computers in a headless configuration which means it will not have a screen, keyboard or mouse. You will absolutely need a laptop to SSH into the Raspberry Pi for configuration. If you have a laptop running OSX or LINUX, you are prepared. IF you have a laptop running WIN, you will need to download a SSH application such as PuTTY: http://www.putty.org/
 
+## In Short, what do I bring to the workshop?
+
+* Laptop with SSH client (installed by default on OSX and LINUX, download [PuTTY](http://www.putty.org/) for WIN)
+
+* All items from the Adafruit wishlist at this [URL](http://www.adafruit.com/wishlists/437997)
+or replacements from amazon or elsewhere if Adafruit is out of stock.
+
+* $100 cash money to pay for the additional items necessary for the workshop.
+
+Details below:
+
 ## Things to buy in preparation for the workshop
 
 ### Adafruit Industries
@@ -37,12 +48,3 @@ https://www.amazon.com/SanDisk-Ultra-Micro-Adapter-SDSQUNC-016G-GN6MA/dp/B010Q57
 Raspberry Pi Zero W to replace PID 3400 at Adafruit:
 
 https://www.sparkfun.com/products/14277
-
-## In Short, what do I bring to the workshop?
-
-* Laptop with SSH client (installed by default on OSX and LINUX, download [PuTTY](http://www.putty.org/) for WIN)
-
-* All items from the Adafruit wishlist at this [URL](http://www.adafruit.com/wishlists/437997)
-or replacements from amazon or elsewhere if Adafruit is out of stock.
-
-* $100 cash money to pay for the additional items necessary for the workshop.
