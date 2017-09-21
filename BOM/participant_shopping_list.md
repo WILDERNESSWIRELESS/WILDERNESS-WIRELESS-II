@@ -18,13 +18,25 @@ If you go this route, you will have everything except the $100 worth of items I 
 
 Please do this at your earliest convenience! Adafruit is a small hobby-electronics store based in NYC. Items in their store frequently go out of stock, but are usually restocked within a week or so.
 
-IF things do go out of stock at Adafruit, you can still get items via Amazon.
+IF things do go out of stock at Adafruit, you can still get items via Amazon or other vendors.
 
 Here are links to some items that might go out of stock that can be had on Amazon:
 
-Wifi Adapter to replace PID 814 at Adafruit
+Wifi Adapter to replace PID 814 at Adafruit:
 
 https://www.amazon.com/gp/product/B01EM9YXB6/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1
+
+On-The-Go male micro USB to female USB adapter to replace PID 1099 at Adafruit:
+
+https://www.amazon.com/UGREEN-Adapter-Samsung-Android-Function/dp/B00LN3LQKQ/ref=sr_1_3?s=electronics&ie=UTF8&qid=1505965193&sr=1-3&keywords=otg%2Busb&th=1
+
+SanDisk Ultra 16GB Class 10 SD card to replace PID 1294 at Adafruit:
+
+https://www.amazon.com/SanDisk-Ultra-Micro-Adapter-SDSQUNC-016G-GN6MA/dp/B010Q57SEE/ref=sr_1_2?s=pc&ie=UTF8&qid=1505966799&sr=1-2&keywords=micro+sd+card&refinements=p_n_feature_keywords_two_browse-bin%3A5947557011
+
+Raspberry Pi Zero W to replace PID 3400 at Adafruit:
+
+https://www.sparkfun.com/products/14277
 
 ## In Short, what do I bring to the workshop?
 
