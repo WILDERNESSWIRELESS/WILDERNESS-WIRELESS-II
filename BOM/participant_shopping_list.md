@@ -17,8 +17,6 @@ or replacements from amazon or elsewhere if Adafruit is out of stock.
 
 ## The details of what things to buy in preparation for the workshop
 
-### Adafruit Industries
-
 The simplest option (maybe not the cheapest) is to use the link below to access the workshop wishlist. With only a few clicks, you can add all the items to your cart and proceed to checkout. The link to the wishlist is here:
 
 http://www.adafruit.com/wishlists/437997
