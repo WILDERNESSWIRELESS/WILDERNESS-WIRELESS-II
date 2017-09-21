@@ -20,7 +20,7 @@ Please do this at your earliest convenience! Adafruit is a small hobby-electroni
 
 IF things do go out of stock at Adafruit, you can still get items via Amazon or other vendors.
 
-Here are links to some items that might go out of stock that can be had on Amazon:
+Here are links to some items that might go out of stock that can be had on Amazon or elsewhere:
 
 Wifi Adapter to replace PID 814 at Adafruit:
 
