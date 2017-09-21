@@ -26,6 +26,30 @@ https://learn.adafruit.com/running-programs-automatically-on-your-tiny-computer/
 
 https://www.raspberrypi.org/documentation/hardware/raspberrypi/mechanical/Raspberry-Pi-Zero-V1.2-Mechanical.pdf
 
+### Raspberry Pi Honeypot (HOSTAPD, DNSMASQ)
+
+https://andrewmichaelsmith.com/2013/08/raspberry-pi-wi-fi-honeypot/
+
+### Raspberry Pi Hotspot
+
+http://www.daveconroy.com/turn-your-raspberry-pi-into-a-wifi-hotspot-with-edimax-nano-usb-ew-7811un-rtl8188cus-chipset/
+
+### Another use your raspberry pi as an access point page
+
+https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/
+
+### And Another
+
+http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/
+
+## USEFUL COMMANDS
+
+### Get the real names of network interfaces
+
+ls /sys/class/net/
+
+
+
 ## ITEMS
 
 ### USB / DC / Solar Lithium Ion/Polymer charger - v2
