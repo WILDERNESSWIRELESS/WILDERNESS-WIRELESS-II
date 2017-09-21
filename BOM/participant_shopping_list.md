@@ -15,9 +15,7 @@ or replacements from amazon or elsewhere if Adafruit is out of stock.
 
 * $100 cash money to pay for the additional items necessary for the workshop.
 
-## Details below:
-
-## Things to buy in preparation for the workshop
+## The details of what things to buy in preparation for the workshop
 
 ### Adafruit Industries
 
