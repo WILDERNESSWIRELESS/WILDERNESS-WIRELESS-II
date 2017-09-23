@@ -5,16 +5,16 @@
 
 #define VOK_PIN       0
 #define VLO_PIN       1
+#define WAK_PIN       2
 #define SUP_PIN       3
 #define SHD_PIN       4
-#define WAK_PIN       2
-#define ON_THRESH  3650
+#define ON_THRESH  3700
 #define OFF_THRESH 3500
 
 int f_wdt = 0;
 long batteryVoltage = 0;
-bool serverUp = 0;
-bool 
+boolean serverUp = false;
+int chargeStatus = 0; // above ON_THRESH = 2, btw ON_ and OFF_THRESH = 1, below OFF_THRESH = 0
 
 void setup() {
   
@@ -43,30 +43,33 @@ void loop() {
   // CHECK BATTERY VOLTAGE
   batteryVoltage = readVcc();
 
+  // DETERMINE CHARGE STATE
+  chargeStatus = getChargeStatus(batteryVoltage);
+
   // WRITE TO STATUS LEDS
-  updateStatus();
+  indicateStatus(chargeStatus);
   
   // CHECK TO SEE IF RPI IS UP
   serverUp = digitalRead(SUP_PIN);
   
   // IF VOLTAGE IS LOW, START SHUTDOWN PROCEDURE
-  if (batteryVoltage <= OFF_THRESH ) {
+  if (chargeStatus == 0) {
     
     //IF RPI is UP, SHUTDOWN
-    if(serverUp == TRUE){
+    if(serverUp == true){
         digitalWrite(SHD_PIN, LOW);
         delay(7000);
     }
     
     // IF RPI is DOWN, REMOVE POWER
-    if(serverUp == FALSE){
+    if(serverUp == false){
         digitalWrite(WAK_PIN, LOW);
     }
     
   }
   
   // IF BATTERY VOLTAGE IS GOOD, START STARTUP PROCEDURE
-  if(batteryVoltage >= ON_THRESH){
+  if(chargeStatus == 2){
     
     // BRING THE SHUTDOWN LINE HIGH
     digitalWrite(SHD_PIN, HIGH);
@@ -99,29 +102,47 @@ ISR(WDT_vect) {
   // do nothing
 }
 
-void updateStatus() {
+int getChargeStatus(long v){
+  
+  int state = 0;
+  
+  if (v <= OFF_THRESH ) {
+    state = 0;
+  }
+
+  if(v >= ON_THRESH && v >= OFF_THRESH){
+    state = 1;
+  }
+
+  if(v >= ON_THRESH){
+    state = 2;
+  }
+  return state;
+}
+
+void indicateStatus(int s) {
   
   // Message Voltage >= THRESH
   
-  if(batteryVoltage >= ON_THRESH){
+  if(s == 2){
       digitalWrite(VOK_PIN, HIGH);
       digitalWrite(VLO_PIN, LOW);
-  }
-  
-  // Message Voltage <= THRESH
-  
-  if(batteryVoltage <= OFF_THRESH){
-      digitalWrite(VLO_PIN, HIGH);
-      digitalWrite(VOK_PIN, LOW);
   }
 
   // Message Voltage between ON_ and OFF_ THRESH 
 
-  if(batteryVoltage < ON_THRESH && batteryVoltage > OFF_THRESH){
+  if(s == 1){
     digitalWrite(VOK_PIN, HIGH);
     digitalWrite(VLO_PIN, HIGH);
   }
   
+  // Message Voltage <= THRESH
+  
+  if(s == 0){
+      digitalWrite(VLO_PIN, HIGH);
+      digitalWrite(VOK_PIN, LOW);
+  }
+
 }
 
 long readVcc() {
