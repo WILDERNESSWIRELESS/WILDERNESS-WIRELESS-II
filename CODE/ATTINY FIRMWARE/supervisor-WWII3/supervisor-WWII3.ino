@@ -35,6 +35,8 @@ void setup() {
   enterSleep();
 }
 
+//////////////// MAIN LOOP
+
 void loop() {
   
   // RESET WATCHDOG TIMER
@@ -51,6 +53,8 @@ void loop() {
   
   // CHECK TO SEE IF RPI IS UP
   serverUp = digitalRead(SUP_PIN);
+
+  // 
   
   // IF VOLTAGE IS LOW, START SHUTDOWN PROCEDURE
   if (chargeStatus == 0) {
@@ -70,16 +74,34 @@ void loop() {
   
   // IF BATTERY VOLTAGE IS GOOD, START STARTUP PROCEDURE
   if(chargeStatus == 2){
-    
-    // BRING THE SHUTDOWN LINE HIGH
-    digitalWrite(SHD_PIN, HIGH);
 
-    // APPLY POWER TO RPI
-    digitalWrite(WAK_PIN, HIGH);
+    // IS THE RPI DOWN?
+
+    if(serverUp = false){
+    
+      // BRING THE SHUTDOWN LINE HIGH
+      digitalWrite(SHD_PIN, HIGH);
+
+      // APPLY POWER TO RPI
+      digitalWrite(WAK_PIN, HIGH);
+    }
   }
+
+  // CATCH STRANGE BEHAVIOR
+
+  if(chargeStatus > 0 && serverUp = false){
+    
+  }
+
+  // GO TO SLEEP FOR A BIT TO SAVE POWER
  
   enterSleep();
+  
 }
+
+//////////////// END MAIN LOOP
+
+// ENTER SLEEP
 
 void enterSleep(void) {
   noInterrupts ();       // timed sequence coming up
@@ -98,9 +120,13 @@ void enterSleep(void) {
   sleep_disable ();      // precaution
 }
 
+// WATCHDOG INTERRUPT
+
 ISR(WDT_vect) {
   // do nothing
 }
+
+// GET CHARGE STATUS
 
 int getChargeStatus(long v){
   
@@ -119,6 +145,8 @@ int getChargeStatus(long v){
   }
   return state;
 }
+
+// INDICATE STATUS ON STATUS LEDS
 
 void indicateStatus(int s) {
   
@@ -144,6 +172,8 @@ void indicateStatus(int s) {
   }
 
 }
+
+// MEASURE VOLTAGE
 
 long readVcc() {
   // Read 1.1V reference against AVcc
