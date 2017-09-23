@@ -18,6 +18,10 @@ https://github.com/TonyLHansen/raspberry-pi-safe-off-switch/
 
 https://learn.adafruit.com/li-ion-and-lipoly-batteries/voltages
 
+### Adafruit Solar Charger Design Notes
+
+https://learn.adafruit.com/usb-dc-and-solar-lipoly-charger/design-notes
+
 ### Writing and Enabling a Service
 
 https://learn.adafruit.com/running-programs-automatically-on-your-tiny-computer/systemd-writing-and-enabling-a-service
@@ -48,8 +52,6 @@ http://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-netw
 
 ls /sys/class/net/
 
-
-
 ## ITEMS
 
 ### USB / DC / Solar Lithium Ion/Polymer charger - v2
@@ -71,3 +73,17 @@ https://www.adafruit.com/product/328
 ### PRODUCT ID: 354
 
 https://www.adafruit.com/product/354
+
+## INSPIRATION
+
+### Pirate Box
+
+https://piratebox.cc/
+
+Aram Bartohll's KEEPALIVE
+
+https://arambartholl.com/keepalive-eng.html
+
+Brett Balogh's WOLF
+
+http://brettbalogh.com/_content/_pages/_projects/_wolf/wolf.html
