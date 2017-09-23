@@ -14,6 +14,7 @@
 int f_wdt = 0;
 long batteryVoltage = 0;
 boolean serverUp = false;
+boolean systemState = 0; // 0 = off, 1 = on
 int chargeStatus = 0; // above ON_THRESH = 2, btw ON_ and OFF_THRESH = 1, below OFF_THRESH = 0
 
 void setup() {
@@ -54,7 +55,7 @@ void loop() {
   // CHECK TO SEE IF RPI IS UP
   serverUp = digitalRead(SUP_PIN);
 
-  // 
+  // DECISIONS ABOUT STATE
   
   // IF VOLTAGE IS LOW, START SHUTDOWN PROCEDURE
   if (chargeStatus == 0) {
@@ -89,8 +90,8 @@ void loop() {
 
   // CATCH STRANGE BEHAVIOR
 
-  if(chargeStatus > 0 && serverUp = false){
-    
+  if(chargeStatus == 0 && serverUp == true){
+    // to do
   }
 
   // GO TO SLEEP FOR A BIT TO SAVE POWER
