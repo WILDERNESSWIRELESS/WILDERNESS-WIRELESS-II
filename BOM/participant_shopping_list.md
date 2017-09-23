@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Wilderness Wireless Workshop II requires participants to purchase a kit of electronics __*IN ADVANCE*__ of the workshop date of Friday, October 20. This kit will cost ~$125 w/o shipping. Participants will also have to bring $100 in cash to the workshop to pay for the rest of the items necessary for the workshop. In total, the cost of the workshop is ~$225.
+The Wilderness Wireless Workshop II requires participants to purchase a kit of electronics __*IN ADVANCE*__ of the workshop date of Friday, October 20. This kit will cost ~$130 w/o shipping. Participants will also have to bring $100 in cash to the workshop to pay for the rest of the items necessary for the workshop. In total, the cost of the workshop is ~$225.
 
 We will be working with Raspberry Pi computers in a headless configuration which means it will not have a screen, keyboard or mouse. You will absolutely need a laptop to SSH into the Raspberry Pi for configuration. If you have a laptop running OSX or LINUX, you are prepared. IF you have a laptop running WIN, you will need to download a SSH application such as PuTTY: http://www.putty.org/
 
