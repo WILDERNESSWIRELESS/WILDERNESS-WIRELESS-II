@@ -1,10 +1,14 @@
 # SETUP INSTRUCTIONS
 
-### TO-DO
+### PREP
 
 - [ ] FORMAT SD CARD W SD CARD FORMATTER
 - [ ] WRITE RASPBIAN TO SD CARD W ETCHER
-- [ ] CONNECT KBD, MOUSE, SCREEN (boot to desktop)
+
+### FIRST START
+- [ ] INSERT SD CARD
+- [ ] CONNECT KBD, MOUSE, SCREEN
+- [ ] CONNECT POWER (wait for boot to desktop)
 - [ ] SETUP WIFI ON WLAN0
 - [ ] START TERMINAL
 - [ ] CHECK NETWORK CONFIG ```ifconfig```
@@ -20,7 +24,9 @@
 
 ### FIRST TASKS
 
-- [ ] SUDO APT-GET UPDATE
+- [ ] ```SUDO APT-GET UPDATE```
+
+
 
 
 ### HOSTAPD
