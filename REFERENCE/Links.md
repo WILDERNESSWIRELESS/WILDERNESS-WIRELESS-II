@@ -2,6 +2,12 @@
 
 ## Info
 
+### Wake an Arduino from sleep with a watchdog timer
+
+http://donalmorrissey.blogspot.com/2010/04/sleeping-arduino-part-5-wake-up-via.html
+
+http://arduino.stackexchange.com/questions/19501/watchdog-approach
+
 ### What is the Watchdog Timer and how to use it
 
 http://www.keychainino.com/what-is-the-watchdog-and-how-to-use-it/
@@ -11,6 +17,10 @@ http://www.keychainino.com/what-is-the-watchdog-and-how-to-use-it/
 https://provideyourown.com/2012/secret-arduino-voltmeter-measure-battery-voltage/
 
 https://jeelabs.org/2012/05/04/measuring-vcc-via-the-bandgap/
+
+### Atmel sleep reference
+
+http://www.atmel.com/webdoc/AVRLibcReferenceManual/group__avr__sleep.html
 
 ### ON/OFF Switch for Rapsberry Pi
 
@@ -58,36 +68,64 @@ ls /sys/class/net/
 
 ## ITEMS
 
+### Tiny AVR Programmer
+
+https://github.com/sparkfun/Tiny-AVR-Programmer/tree/V_1.3
+
+https://www.sparkfun.com/products/11801
+
 ### USB / DC / Solar Lithium Ion/Polymer charger - v2
-### PRODUCT ID: 390
+#### PRODUCT ID: 390
 
 https://www.adafruit.com/product/390
 
 ### PowerBoost 500 Basic - 5V USB Boost @ 500mA from 1.8V+
-### PRODUCT ID: 1903
+#### PRODUCT ID: 1903
 
 https://www.adafruit.com/product/1903
 
 ### Lithium Ion Polymer Battery - 3.7v 2500mAh
-### PRODUCT ID: 328
+#### PRODUCT ID: 328
 
 https://www.adafruit.com/product/328
 
 ### Lithium Ion Battery Pack - 3.7V 4400mAh
-### PRODUCT ID: 354
+#### PRODUCT ID: 354
 
 https://www.adafruit.com/product/354
 
+## Wilderness Networks
+
+### Forestry Communication Tools
+
+http://www.fao.org/forestry/communication-toolkit/en/
+
+### Internet of Fungus
+
+http://www.bbc.com/earth/story/20141111-plants-have-a-hidden-internet
+
+### Wood Wide web
+
+http://www.newyorker.com/tech/elements/the-secrets-of-the-wood-wide-web
+
+https://en.wikipedia.org/wiki/Mycorrhizal_network
+
+https://rayalaseema360.wordpress.com/2016/01/31/trees-have-their-own-internet-wood-wide-web/
+
 ## INSPIRATION
+
+### LED Throwies
+
+http://www.graffitiresearchlab.com/blog/projects/led-throwies/
 
 ### Pirate Box
 
 https://piratebox.cc/
 
-Aram Bartohll's KEEPALIVE
+### Aram Bartohll's KEEPALIVE
 
 https://arambartholl.com/keepalive-eng.html
 
-Brett Balogh's WOLF
+### Brett Balogh's WOLF
 
 http://brettbalogh.com/_content/_pages/_projects/_wolf/wolf.html
