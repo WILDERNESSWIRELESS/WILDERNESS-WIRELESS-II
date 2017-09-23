@@ -2,6 +2,10 @@
 
 ## Info
 
+### What is the Watchdog Timer and how to use it
+
+http://www.keychainino.com/what-is-the-watchdog-and-how-to-use-it/
+
 ### Measuring battery voltage with ATTINY
 
 https://provideyourown.com/2012/secret-arduino-voltmeter-measure-battery-voltage/
