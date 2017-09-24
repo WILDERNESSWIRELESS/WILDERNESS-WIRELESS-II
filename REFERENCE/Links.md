@@ -2,6 +2,14 @@
 
 ## Info
 
+GPIOZERO documentation
+
+https://gpiozero.readthedocs.io/en/stable/
+
+Getting started with systemd on Jessie
+
+https://medium.com/@johannes_gehrs/getting-started-with-systemd-on-debian-jessie-e024758ca63d
+
 SYSTEMCTL and SERVICES
 
 https://learn.adafruit.com/running-programs-automatically-on-your-tiny-computer/systemd-writing-and-enabling-a-service
