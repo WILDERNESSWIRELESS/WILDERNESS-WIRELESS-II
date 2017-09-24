@@ -140,6 +140,6 @@
 - [ ] INSTALL APACHE2
   - ```sudo apt-get install apache2```
   - ```Do you want to continue? [Y/n] ```
-- [ ] Update rc.d
+- [ ] MAKE CHANGES TO THE DEFAULT WEB PAGE
+- [ ] UPDATE rc.d
   - ```sudo update-rc.d apache2 defaults```
-  
