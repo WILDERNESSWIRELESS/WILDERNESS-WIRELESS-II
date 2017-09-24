@@ -133,3 +133,10 @@
 ### APACHE2
 
 #### APACHE2 is a web server. You can serve web pages to those who connect to your access point.
+
+- [ ] STOP DNSMASQ FOR NOW
+  - ```sudo systemctl stop dnsmasq.service```
+
+- [ ] INSTALL APACHE2
+  - ```sudo apt-get install apache2```
+  - ```Do you want to continue? [Y/n] ```
