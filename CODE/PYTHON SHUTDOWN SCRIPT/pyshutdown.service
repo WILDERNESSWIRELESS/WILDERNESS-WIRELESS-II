@@ -1,0 +1,10 @@
+[Unit]
+Description=Python Shutdown Service
+
+[Service]
+ExecStart=/home/pi/python_apps/shutdown.py
+StandardOutput=null
+
+[Install]
+WantedBy=multi-user.target
+Alias=pyshutdown.service

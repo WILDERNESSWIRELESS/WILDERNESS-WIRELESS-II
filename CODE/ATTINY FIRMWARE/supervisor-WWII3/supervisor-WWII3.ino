@@ -9,7 +9,7 @@
 #define SUP_PIN       3
 #define SHD_PIN       4
 #define ON_THRESH  3700
-#define OFF_THRESH 3500
+#define OFF_THRESH 3400
 
 int f_wdt = 0;
 long batteryVoltage = 0;
@@ -78,14 +78,14 @@ void loop() {
 
     // IS THE RPI DOWN?
 
-    if(serverUp = false){
+    //if(serverUp = false){
     
       // BRING THE SHUTDOWN LINE HIGH
       digitalWrite(SHD_PIN, HIGH);
 
       // APPLY POWER TO RPI
       digitalWrite(WAK_PIN, HIGH);
-    }
+    //}
   }
 
   // CATCH STRANGE BEHAVIOR
@@ -137,7 +137,7 @@ int getChargeStatus(long v){
     state = 0;
   }
 
-  if(v >= ON_THRESH && v >= OFF_THRESH){
+  if(v > OFF_THRESH && v < ON_THRESH){
     state = 1;
   }
 

@@ -5,6 +5,7 @@
 - [ ] FORMAT SD CARD W SD CARD FORMATTER
 - [ ] WRITE RASPBIAN TO SD CARD W ETCHER
 
+
 ### FIRST START
 - [ ] INSERT SD CARD
 - [ ] CONNECT KBD, MOUSE, SCREEN
@@ -33,6 +34,7 @@
   - ```sudo shutdown now```
 - [ ] REMOVE POWER
 - [ ] REMOVE KBD, MOUSE, SCREEN. MAKE SURE ORIGINAL WIRELESS INTERFACE IS PLUGGED IN
+
 
 ### SECOND START
 
@@ -72,8 +74,44 @@
   - *after reboot wlan1 should come back with dhcp, wlan0 with a static IP*
 
 
+### PYTHON SHUTDOWN SERVICE
+
+- [ ] CREATE SHUTDOWN PYTHON PROGRAM
+  - ```nano ~/pyshutdown.py```
+  - add:
+  ```
+  ```
+
+- [ ] CREATE FILE PYSHUTDOWN.SERVICE
+  - ```sudo nano /lib/systemd/system/pyshutdown.service```
+  - add:
+  ```
+  [Unit]
+  Description=Python Shutdown Service
+
+  [Service]
+  ExecStart=/home/pi/pyshutdown.py
+  StandardOutput=null
+
+  [Install]
+  WantedBy=multi-user.target
+  Alias=pyshutdown.service
+  ```
 
 
+### APACHE2
+
+#### APACHE2 is a web server. You can serve web pages to those who connect to your access point.
+
+- [ ] STOP DNSMASQ FOR NOW
+  - ```sudo systemctl stop dnsmasq.service```
+
+- [ ] INSTALL APACHE2
+  - ```sudo apt-get install apache2```
+  - ```Do you want to continue? [Y/n] ```
+- [ ] MAKE CHANGES TO THE DEFAULT WEB PAGE
+- [ ] UPDATE rc.d
+  - ```sudo update-rc.d apache2 defaults```
 
 
 ### HOSTAPD
@@ -129,17 +167,3 @@
 - [ ] CHECK TO SEE IF DNSMASQ WORKS BY CONNECTING TO YOUR ACCESS POINT
   - ```ifconfig```
   - *if your IP address starts with 10.0.0.#, you're doing great!*
-
-### APACHE2
-
-#### APACHE2 is a web server. You can serve web pages to those who connect to your access point.
-
-- [ ] STOP DNSMASQ FOR NOW
-  - ```sudo systemctl stop dnsmasq.service```
-
-- [ ] INSTALL APACHE2
-  - ```sudo apt-get install apache2```
-  - ```Do you want to continue? [Y/n] ```
-- [ ] MAKE CHANGES TO THE DEFAULT WEB PAGE
-- [ ] UPDATE rc.d
-  - ```sudo update-rc.d apache2 defaults```

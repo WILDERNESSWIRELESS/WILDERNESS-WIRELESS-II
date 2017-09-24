@@ -2,6 +2,10 @@
 
 ## Info
 
+SYSTEMCTL and SERVICES
+
+https://learn.adafruit.com/running-programs-automatically-on-your-tiny-computer/systemd-writing-and-enabling-a-service
+
 ### Setting Apache2 up on a raspberry pi
 
 https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md
