@@ -123,7 +123,7 @@
   log-queries
   ```
 - [ ] UPDATE rc.d
-  - sudo ```update-rc.d dnsmasq defaults```
+  - sudo ```sudo update-rc.d dnsmasq defaults```
 - [ ] REBOOT
   - ```sudo reboot```
 - [ ] CHECK TO SEE IF DNSMASQ WORKS BY CONNECTING TO YOUR ACCESS POINT
@@ -140,3 +140,6 @@
 - [ ] INSTALL APACHE2
   - ```sudo apt-get install apache2```
   - ```Do you want to continue? [Y/n] ```
+- [ ] Update rc.d
+  - ```sudo update-rc.d apache2 defaults```
+  

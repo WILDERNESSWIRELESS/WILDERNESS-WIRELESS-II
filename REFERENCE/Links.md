@@ -2,6 +2,10 @@
 
 ## Info
 
+### Setting Apache2 up on a raspberry pi
+
+https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md
+
 ### Wake an Arduino from sleep with a watchdog timer
 
 http://donalmorrissey.blogspot.com/2010/04/sleeping-arduino-part-5-wake-up-via.html
