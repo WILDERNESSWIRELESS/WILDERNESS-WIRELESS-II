@@ -78,6 +78,8 @@
 
 ### HOSTAPD
 
+#### HOSTAPD will turn your raspberry pi into a wifi access point
+
 - [ ] INSTALL HOSTAPD
   - ```sudo apt-get install hostapd```
   - ```Do you want to continue? [Y/n] Y```
@@ -89,7 +91,7 @@
   ```
   interface=wlan0
   driver=nl80211
-  ssid=WILDERNESS-WIRELESS-00
+  ssid=↟↟↟↟↟↟↟↟
   channel=1
   ```
 - [ ] EDIT HOSTAPD IN INIT.D
@@ -103,4 +105,31 @@
 
 ### DNSMASQ
 
+#### DNSMASQ will enable your access point to hand out IP addresses so others can connect
+
+- [ ] INSTALL DNSMASQ
+  - ```sudo apt-get install dnsmasq```
+  - ```Do you want to continue? [Y/n] Y```
+ - [ ] CONFIGURE DNSMASQ
+  - ```sudo cp /etc/dnsmasq.conf /etc/dnsmasq.old```
+  - ```sudo nano /etc/dnsmasq.conf```
+  - add at end:
+  ```
+  log-facility=/var/log/dnsmasq.log
+  address=/#/10.0.0.1
+  interface=wlan0
+  dhcp-range=10.0.0.10,10.0.0.250,12h
+  no-resolv
+  log-queries
+  ```
+- [ ] UPDATE rc.d
+  - sudo ```update-rc.d dnsmasq defaults```
+- [ ] REBOOT
+  - ```sudo reboot```
+- [ ] CHECK TO SEE IF DNSMASQ WORKS BY CONNECTING TO YOUR ACCESS POINT
+  - ```ifconfig```
+  - *if your IP address starts with 10.0.0.#, you're doing great!*
+
 ### APACHE2
+
+#### APACHE2 is a web server. You can serve web pages to those who connect to your access point.
