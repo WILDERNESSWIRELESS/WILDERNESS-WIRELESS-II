@@ -41,7 +41,7 @@
 - [ ] APPLY POWER
 - [ ] UPDATE PACKAGE LISTS
   - ```sudo apt-get update```
-- [ ] COPY DHCPCD.CONF to DHCPCD.OLD
+- [ ] COPY ```dhcpcd.conf``` to ```dhcpcd.old```
   - ```sudo cp /etc/dhcpcd.conf /etc/dhcpcd.old```
 - [ ] EDIT DHCPCD.CONF (2 ways)
     - ```sudo nano /etc/dhcpcd.conf```
@@ -117,9 +117,32 @@
   btn.when_released = when_released
   pause()
   ```
+- [ ] MAKE PROGRAM EXECUTABLE
+  - ```sudo chmod +x pyshutdown.py```
 
+## PYTHON LOG SHELL SCRIPT
 
-- [ ] CREATE FILE PYSHUTDOWN.SERVICE
+- [ ] CREATE FILE ```~/log.txt```
+  - ```touch log.txt```
+- [ ] CREATE FILE ```~/loguptime.sh```
+  - ```nano ~/loguptime.sh```
+  - add:
+  ```
+  #!/bin/bash
+
+  uptime >> /home/pi/log.txt
+  ```
+- [ ] MAKE FILE EXECUTABLE
+  - ```sudo chmod +x ~/loguptime.sh```
+- [ ] MAKE A CRON JOB TO EXECUTE SCRIPT
+  - ```crontab -e```
+  - IF PROMPTED FOR EDITOR, CHOOSE NANO
+  - ADD TO THE END OF THE FILE:
+  - ```* * * * * /home/pi/loguptime.sh```
+
+## PYTHON SHUTDOWN SERVICE
+
+- [ ] CREATE FILE ```pyshutdown.service```
   - ```sudo nano /lib/systemd/system/pyshutdown.service```
   - add:
   ```
