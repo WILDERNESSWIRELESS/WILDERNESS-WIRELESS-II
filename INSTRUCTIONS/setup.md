@@ -29,11 +29,14 @@
   - B3 Splash Screen - ```TAB``` \<NO\>, \<ENTER\>
 - [ ] QUIT CONFIG
   - ```TAB``` \<Finish\>
-- [ ] REBOOT
+- [ ] SHUT DOWN
   - ```sudo shutdown now```
+- [ ] REMOVE POWER
+- [ ] REMOVE KBD, MOUSE, SCREEN. MAKE SURE ORIGINAL WIRELESS INTERFACE IS PLUGGED IN
 
 ### SECOND START
 
+- [ ] APPLY POWER
 - [ ] UPDATE PACKAGE LISTS
   - ```sudo apt-get update```
 - [ ] COPY DHCPCD.CONF to DHCPCD.OLD
@@ -74,6 +77,29 @@
 
 
 ### HOSTAPD
+
+- [ ] INSTALL HOSTAPD
+  - ```sudo apt-get install hostapd```
+  - ```Do you want to continue? [Y/n] Y```
+- [ ] MAKE CONFIG FILE FOR HOSTAPD
+  - ```touch /etc/hostapd/hostapd.conf```
+- [ ] EDIT HOSTAPD.CONF
+  - ```sudo nano /etc/hostapd/hostapd.conf```
+  - add:
+  ```
+  interface=wlan0
+  driver=nl80211
+  ssid=WILDERNESS-WIRELESS-00
+  channel=1
+  ```
+- [ ] EDIT HOSTAPD IN INIT.D
+  - FIND LINE ```DAEMON_CONF=```
+  - CHANGE TO ```DAEMON_CONF=/etc/hostapd/hostapd.conf```
+- [ ] UPDATE rc.d
+  - ```sudo update-rc.d hostapd defaults```
+- [ ] REBOOT
+  - ``sudo reboot```
+  - *after reboot, your wireless network name should be visible but not joinable*
 
 ### DNSMASQ
 
