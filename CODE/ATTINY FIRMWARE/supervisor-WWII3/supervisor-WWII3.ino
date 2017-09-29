@@ -8,7 +8,7 @@
 #define WAK_PIN       2
 #define SUP_PIN       3
 #define SHD_PIN       4
-#define ON_THRESH  3800
+#define ON_THRESH  4000
 #define OFF_THRESH 3500
 
 int f_wdt = 0;
@@ -16,6 +16,7 @@ long batteryVoltage = 0;
 boolean serverUp = false;
 boolean systemState = 0; // 0 = off, 1 = on
 int chargeStatus = 0; // above ON_THRESH = 2, btw ON_ and OFF_THRESH = 1, below OFF_THRESH = 0
+int upCounter = 0;
 
 void setup() {
   
@@ -58,13 +59,13 @@ void loop() {
   // DECISIONS ABOUT STATE
   
   // IF VOLTAGE IS LOW, START SHUTDOWN PROCEDURE
-  if (chargeStatus == 0) {
+  if (chargeStatus == 0 && upCounter > 1) {
     
     //IF RPI is UP, SHUTDOWN
-    if(serverUp == true){
+    //if(serverUp == true){
         digitalWrite(SHD_PIN, LOW);
         delay(7000);
-    }
+    //}
     
     // IF RPI is DOWN, REMOVE POWER
     //if(serverUp == false){
@@ -74,7 +75,7 @@ void loop() {
   }
   
   // IF BATTERY VOLTAGE IS GOOD, START STARTUP PROCEDURE
-  if(chargeStatus == 2){
+  if(chargeStatus == 2 && upCounter > 1){
 
     // IS THE RPI DOWN?
 
@@ -128,7 +129,7 @@ void enterSleep(void) {
 // WATCHDOG INTERRUPT
 
 ISR(WDT_vect) {
-  // do nothing
+  upCounter++;
 }
 
 // GET CHARGE STATUS
