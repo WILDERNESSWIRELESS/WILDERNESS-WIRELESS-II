@@ -13,6 +13,8 @@ We will be working with Raspberry Pi computers in a headless configuration which
 * All items from the Adafruit wishlist at this [URL](http://www.adafruit.com/wishlists/437997)
 or replacements from amazon or elsewhere if Adafruit is out of stock.
 
+* __Use the code ADAEDU for a 10% discount!__
+
 * Two USB cables, 1x MINI, 1x MICRO. These are included in the Adafruit wishlist. If you have your own, you can remove them from the wishlist.
 
 * $100 cash money to pay for the additional items necessary for the workshop.
