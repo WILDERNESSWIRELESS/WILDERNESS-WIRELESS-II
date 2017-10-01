@@ -7,7 +7,7 @@
 //
 // TO DO
 //
-// TEMPORAL AVERAGING
+// 
 // ATTINY RESET SWITCH?
 // MAIN POWER SWITCH?
 
@@ -16,8 +16,8 @@
 #include <avr/power.h>    // Power management
 #include <avr/wdt.h>      // Watchdog timer
 
-#define VOK_PIN       0
-#define VLO_PIN       1
+#define VOK_PIN       0 //--> putting a button here instead
+#define VLO_PIN       1 //--> this will be the only status LED
 #define WAK_PIN       2
 #define SUP_PIN       3
 #define SHD_PIN       4
@@ -47,7 +47,7 @@ void setup() {
   digitalWrite(VLO_PIN, LOW);
   #endif
 
-  pinMode(SUP_PIN, INPUT);
+  pinMode(SUP_PIN, INPUT_PULLDOWN);
   
   pinMode(WAK_PIN, OUTPUT);
   digitalWrite(WAK_PIN, LOW);
