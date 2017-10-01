@@ -34,6 +34,7 @@ boolean serverUp = false;
 boolean systemState = 0; // 0 = off, 1 = on
 int chargeStatus = 0; // above ON_THRESH = 2, btw ON_ and OFF_THRESH = 1, below OFF_THRESH = 0
 int upCounter = 0;
+int upCounterThresh = 10;
 SoftwareSerial mySerial(VOK_PIN, VLO_PIN);
 
 void setup() {
@@ -86,8 +87,16 @@ void loop() {
 
   //DEBUG MSG
   #ifdef DEBUG
-  mySerial.println("****************");
-  mySerial.println("I'm waking up...");
+  mySerial.println(F("I'm waking up..."));
+  mySerial.print(F("I've woken "));
+  mySerial.print(upCounter);
+  mySerial.println(F(" times."));
+  mySerial.print(F("The current time is: "));
+  mySerial.println(millis());
+  mySerial.print(F("ON threshold set at: "));
+  mySerial.println(ON_THRESH);
+  mySerial.print(F("OFF threshold set at: "));
+  mySerial.println(OFF_THRESH);
   #endif
   
   // CHECK BATTERY VOLTAGE
@@ -95,7 +104,7 @@ void loop() {
 
   //DEBUG MSG
   #ifdef DEBUG
-  mySerial.print("Voltage is: ");
+  mySerial.print(F("Current battery voltage is: "));
   mySerial.println(batteryVoltage);
   #endif
 
@@ -109,12 +118,12 @@ void loop() {
 
   //DEBUG MSG
   #ifdef DEBUG
-  mySerial.print("Array is: ");
+  mySerial.print(F("Array contents: "));
   for(int i = 0; i < 10; i++){
     mySerial.print(readings[i]);
-    mySerial.print(" ");
+    mySerial.print(F(" "));
   }
-  mySerial.println("");
+  mySerial.println(F(""));
   #endif
   
   // CALCULATE AVERAGE VOLTAGE
@@ -126,16 +135,16 @@ void loop() {
 
   //DEBUG MSG
   #ifdef DEBUG
-  mySerial.print("Average Voltage is: ");
+  mySerial.print(F("Average voltage is: "));
   mySerial.println(averageVoltage);
   #endif
 
   // DETERMINE CHARGE STATE
-  chargeStatus = getChargeStatus(batteryVoltage);
+  chargeStatus = getChargeStatus(averageVoltage);
 
   //DEBUG MSG
   #ifdef DEBUG
-  mySerial.print("Charge State is: ");
+  mySerial.print(F("Charge state is: "));
   mySerial.println(chargeStatus);
   #endif
 
@@ -146,19 +155,29 @@ void loop() {
   
   // CHECK TO SEE IF RPI IS UP
   serverUp = digitalRead(SUP_PIN);
-
+  #ifdef DEBUG
+  mySerial.print(F("System UP pin state is: "));
+  mySerial.println(serverUp);
+  #endif
+  
   // DECISIONS ABOUT STATE
   
   // IF VOLTAGE IS LOW, START SHUTDOWN PROCEDURE
-  if (chargeStatus == 0 && upCounter > 5) {
+  if (chargeStatus < 1 && upCounter > upCounterThresh) {
     
     //IF RPI is UP, SHUTDOWN
+    #ifdef DEBUG
+    mySerial.println(F("Going to signal RPI to shutdown NOW..."));
+    #endif
     //if(serverUp == true){
         digitalWrite(SHD_PIN, LOW);
         delay(7000);
     //}
     
     // IF RPI is DOWN, REMOVE POWER
+    #ifdef DEBUG
+    mySerial.println(F("Removing power to RPI NOW..."));
+    #endif
     //if(serverUp == false){
         digitalWrite(WAK_PIN, LOW);
     //}
@@ -166,16 +185,22 @@ void loop() {
   }
   
   // IF BATTERY VOLTAGE IS GOOD, START STARTUP PROCEDURE
-  if(chargeStatus == 2 && upCounter > 5){
+  if(chargeStatus == 2 && upCounter > upCounterThresh){
 
     // IS THE RPI DOWN?
 
     //if(serverUp = false){
     
       // BRING THE SHUTDOWN LINE HIGH
+      #ifdef DEBUG
+      mySerial.println(F("Setting the shutdown line HIGH..."));
+      #endif
       digitalWrite(SHD_PIN, HIGH);
 
       // APPLY POWER TO RPI
+      #ifdef DEBUG
+      mySerial.println(F("Applying power to RPI NOW..."));
+      #endif
       digitalWrite(WAK_PIN, HIGH);
     //}
   }
@@ -188,8 +213,8 @@ void loop() {
 
   //DEBUG MSG
   #ifdef DEBUG
-  mySerial.println("I'm going to sleep...");
-  mySerial.println("****************");
+  mySerial.println(F("I'm going to sleep..."));
+  mySerial.println(F("****************"));
   #endif
 
   // GO TO SLEEP FOR A BIT TO SAVE POWER
