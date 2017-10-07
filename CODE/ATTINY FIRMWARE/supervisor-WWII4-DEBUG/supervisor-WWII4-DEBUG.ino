@@ -22,7 +22,7 @@
 #define SUP_PIN       3
 #define SHD_PIN       4
 #define ON_THRESH  4000
-#define OFF_THRESH 3500
+#define OFF_THRESH 3400
 
 #define DEBUG
 
@@ -47,7 +47,7 @@ void setup() {
   digitalWrite(VLO_PIN, LOW);
   #endif
 
-  pinMode(SUP_PIN, INPUT_PULLDOWN);
+  pinMode(SUP_PIN, INPUT);
   
   pinMode(WAK_PIN, OUTPUT);
   digitalWrite(WAK_PIN, LOW);
