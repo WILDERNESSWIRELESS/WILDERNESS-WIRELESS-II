@@ -21,7 +21,7 @@
 #define WAK_PIN       2
 #define SUP_PIN       3
 #define SHD_PIN       4
-#define ON_THRESH  4000
+#define ON_THRESH  4200
 #define OFF_THRESH 3400
 
 #define DEBUG

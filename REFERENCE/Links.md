@@ -2,6 +2,10 @@
 
 ## Info
 
+Tiny AVR Programmer from sparkfun
+
+https://learn.sparkfun.com/tutorials/tiny-avr-programmer-hookup-guide
+
 GPIOZERO documentation
 
 https://gpiozero.readthedocs.io/en/stable/
