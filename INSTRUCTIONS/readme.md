@@ -69,8 +69,10 @@
 
   wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
   ```
-- [ ] REBOOT
-  - ```sudo reboot```
+- [ ] SHUTDOWN
+  - ```sudo shutdown now```
+  - [ ] WAIT FOR SYSTEM TO GO DOWN (THERE WILL BE FLASHING LIGHTS ON THE PI. WHEN THEY GO OUT, PI IS DOWN)
+  - [ ] ATTACH ADDITIONAL WIFI ADAPTER TO PI WITH USB OTG CABLE
   - *after reboot wlan1 should come back with dhcp, wlan0 with a static IP*
 
 
