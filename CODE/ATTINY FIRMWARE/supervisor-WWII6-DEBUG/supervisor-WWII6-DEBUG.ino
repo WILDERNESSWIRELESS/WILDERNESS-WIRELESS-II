@@ -23,8 +23,8 @@
 #define WAK_PIN       2
 #define SUP_PIN       3
 #define SHD_PIN       4
-#define ON_THRESH  3800
-#define OFF_THRESH 2700
+#define ON_THRESH  4200
+#define OFF_THRESH 3700
 
 #define DEBUG
 
@@ -37,6 +37,11 @@ boolean systemState = 0; // 0 = off, 1 = on
 int chargeStatus = 0; // above ON_THRESH = 2, btw ON_ and OFF_THRESH = 1, below OFF_THRESH = 0
 int upCounter = 0;
 int upCounterThresh = 10;
+
+//char cmd[4];
+String cmd;
+int cmdInt = 0;
+
 SoftwareSerial mySerial(VOK_PIN, VLO_PIN);
 
 void setup() {
@@ -86,6 +91,25 @@ void loop() {
   
   // RESET WATCHDOG TIMER
   wdt_reset();
+
+  // SERIAL INPUT PROCESSING
+
+  while (mySerial.available()){
+    char inChar = mySerial.read();
+    if(inChar == '$'){
+      mySerial.println("Hello!");
+      mySerial.print("> ");
+      char inChar = mySerial.read();
+      if(inChar == '\n'){
+         break;
+      }
+      cmd += inChar;
+    }
+    cmdInt = cmd.toInt();
+    mySerial.print("> ");
+    mySerial.println(cmdInt);
+    break;
+  }
 
   //DEBUG MSG
   #ifdef DEBUG
