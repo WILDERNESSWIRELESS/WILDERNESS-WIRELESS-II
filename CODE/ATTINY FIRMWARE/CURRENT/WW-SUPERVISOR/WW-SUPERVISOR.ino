@@ -109,37 +109,50 @@ void loop() {
 
         // IS THE CHARACTER THE BEGINNING OF A COMMAND?
         if(inChar == '$'){
+          // SET IN PROGRESS FLAG
           cmdInProgress = true;
         }
 
         // IS THE COMMAND TO SET ON_THRESH?
         if(inChar == '>'){
+          // COMMAND IS SET ON_THRESH
           cmdType = 2;
         }
 
         // IS THE COMMANC TO SET OFF_THRESH
         if(inChar == '<'){
+          // COMMAND IS SET OFF THRESH
           cmdType = 1;
         }
         
         // IS THE CHARACTER A TERMINATION CHAR?
         if(inChar == '\n' || inChar == 'r'){
+          // COMMAND IS NO LONGER IN PROGRESS
           cmdInProgress = false;
+          // IS THE COMMAND LONGER THAN 0 CHARS?
           if(cmd.length() > 0){
+            // CAST STRING TO INT
             cmdInt = cmd.toInt();
+              // IF COMMAND IS TO SET OFF_THRESH
               if(cmdType == 1){
+                // SET OFF_THRESH TO COMMAND INT
                 OFF_THRESH = cmdInt;
               }
+              // IF COMMAND IS TO SET ON_THRESH
               if(cmdType == 2){
+                // SET ON_THRESH TO COMMAND INT
                 ON_THRESH = cmdInt;
               }
           }
+          // CLEAR COMMAND TYPE FLAG
           cmdType = 0;
+          // CLEAR COMMAND STRING
           cmd = "";
         }
         
-        // IS THERE A COMMANCE IN PROCESS AND IS THE CHARACTER NUMERIC
+        // IS THERE A COMMAND IN PROCESS AND IS THE CHARACTER NUMERIC
         if(cmdInProgress && inChar >= 48 && inChar <= 57){
+          // THROW ANOTHER CHAR ON THE HEAP
           cmd += inChar;
         }
         
