@@ -10,10 +10,10 @@ http://highlowtech.org/?p=1695
 
 Afterwards, connect your FTDI cable to the RX, TX and GND pins in the image.
 
-WW  | FTDI
-----------
-TX  | RX
-RX  | TX
-GND | GND
+|WW  | FTDI|
+|----|-----|
+|TX  | RX|
+|RX  | TX|
+|GND | GND|
 
 ![img](./WWII-SERIAL.jpg)
