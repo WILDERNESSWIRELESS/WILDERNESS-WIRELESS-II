@@ -23,8 +23,7 @@
 #define WAK_PIN       2
 #define SUP_PIN       3
 #define SHD_PIN       4
-#define ON_THRESH  4200
-#define OFF_THRESH 3700
+
 
 #define DEBUG
 
@@ -37,10 +36,15 @@ boolean systemState = 0; // 0 = off, 1 = on
 int chargeStatus = 0; // above ON_THRESH = 2, btw ON_ and OFF_THRESH = 1, below OFF_THRESH = 0
 int upCounter = 0;
 int upCounterThresh = 10;
+boolean readDone = 0;
+boolean cmdInProgress = 0;
 
 //char cmd[4];
 String cmd;
 int cmdInt = 0;
+int cmdType = 0; // 1 = OFF_THRESH, 2 = ON_THRESH
+int ON_THRESH = 4200;
+int OFF_THRESH = 3700;
 
 SoftwareSerial mySerial(VOK_PIN, VLO_PIN);
 
@@ -94,22 +98,59 @@ void loop() {
 
   // SERIAL INPUT PROCESSING
 
-  while (mySerial.available()){
-    char inChar = mySerial.read();
-    if(inChar == '$'){
-      mySerial.println("Hello!");
-      mySerial.print("> ");
-      char inChar = mySerial.read();
-      if(inChar == '\n'){
-         break;
-      }
-      cmd += inChar;
+  while(mySerial.available()){
+    
+    delay(3);
+    
+    if(mySerial.available() > 0){
+
+        // READ A CHARACTER
+        char inChar = mySerial.read();
+
+        // IS THE CHARACTER THE BEGINNING OF A COMMAND?
+        if(inChar == '$'){
+          cmdInProgress = true;
+        }
+
+        // IS THE COMMAND TO SET ON_THRESH?
+        if(inChar == '>'){
+          cmdType = 2;
+        }
+
+        // IS THE COMMANC TO SET OFF_THRESH
+        if(inChar == '<'){
+          cmdType = 1;
+        }
+        
+        // IS THE CHARACTER A TERMINATION CHAR?
+        if(inChar == '\n' || inChar == 'r'){
+          cmdInProgress = false;
+          if(cmd.length() > 0){
+            cmdInt = cmd.toInt();
+              if(cmdType == 1){
+                OFF_THRESH = cmdInt;
+              }
+              if(cmdType == 2){
+                ON_THRESH = cmdInt;
+              }
+          }
+          cmdType = 0;
+          cmd = "";
+        }
+        
+        // IS THERE A COMMANCE IN PROCESS AND IS THE CHARACTER NUMERIC
+        if(cmdInProgress && inChar >= 48 && inChar <= 57){
+          cmd += inChar;
+        }
+        
     }
-    cmdInt = cmd.toInt();
-    mySerial.print("> ");
-    mySerial.println(cmdInt);
-    break;
+    
   }
+  
+
+   
+  
+  
 
   //DEBUG MSG
   #ifdef DEBUG
