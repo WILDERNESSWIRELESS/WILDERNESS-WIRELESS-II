@@ -26,6 +26,8 @@ A command string looks like this:
 
 $>4200
 
+-or-
+
 This sets the ON_THRESHOLD to 4.2V
 
 $<3700
