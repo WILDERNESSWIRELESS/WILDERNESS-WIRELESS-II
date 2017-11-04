@@ -8,6 +8,6 @@ Use an Arduino to program the ATTINY85
 
 http://highlowtech.org/?p=1695
 
-Aftewrards, connect your FTDI cable to the RX, TX and GND pins in the image.
+Afterwards, connect your FTDI cable to the RX, TX and GND pins in the image.
 
 ![img](./WWII-SERIAL.jpg)
