@@ -1,0 +1,23 @@
+# SUNNY BUDDY BOM
+
+U1 LT3652
+
+**R1 0.22OHM
+**R2 47k
+**R3 220k
+**R4 10k
+**R5 10k
+**R6 220k
+**R7 10k POT
+
+**C1 10uF
+**C2 10uF
+**C3 47uF
+**C4 47uF
+**C5 1.0uF
+**C6 1.0uF
+
+**L1 68uH
+
+*D1 ZLLS500
+*D2 ZLLS500

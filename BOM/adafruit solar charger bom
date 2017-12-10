@@ -1,0 +1,24 @@
+#Adafruit Solar Charger BOM
+
+R1 0
+**R2 270k
+**R3 100k
+R4
+**R5 1k
+R6
+R7
+**R8  1k
+**R9  1k
+**R10 1k
+**R11 2k
+**R12 100k
+RT1 0
+**RT2 10k
+**   150k
+
+*C1 10uF
+*C2 10uF
+*C3 10uF
+*C4 4700uF
+
+* D1 MBR120VLSFT1G

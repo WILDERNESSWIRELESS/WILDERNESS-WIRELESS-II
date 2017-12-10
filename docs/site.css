@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+html {
+
+    background: url(www.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+
+    color: rgba(255,255,255,0.7);
+}
+
+#cover {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    resize: both;
+    overflow: auto;
+}
+
+#page {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    resize: both;
+    overflow: auto;
+}
+
+p {
+/* Nothing Yet */
+}
+
+a:link {
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+}
+
+/* mouse over link */
+a:hover {
+    color: rgba(255,255,255,1.0);
+}
+
+a:visited {
+    color: rgba(255,255,255,0.7);
+}
+
+h1.reg {
+    font-family: Sublime;
+    font-size: 100px;
+}
+
+h1.em {
+    font-family: Sublime-MediumItalic;
+    font-size: 100px;
+}
+
+h3 {
+    font-family: Sublime-MediumItalic;
+    font-size: 32px;
+	align-content:center;
+}
